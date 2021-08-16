@@ -48,14 +48,21 @@ bullet_state = "Ready"
 
 # Score
 score_value = 0
-font = pygame.font.Font('freesansbold.ttf', 32)
+'''font = pygame.font.Font('freesansbold.ttf', 32)
 text_x = 10
-text_y = 10
+text_y = 10'''
 
+# Game over text
+'''over_font = pygame.font.Font('freesansbold.ttf', 64)'''
 
-def show_score(x, y):
+'''def show_score(x, y):
     score = font.render("Score : " + str(score_value), True, (150, 0, 50))
-    screen.blit(score, (x, y))
+    screen.blit(score, (x, y))'''
+
+
+'''def game_over_text():
+    over_text = font.render("GAME OVER", True, (150, 0, 50))
+    screen.blit(over_text, (200, 250))'''
 
 
 def player(x, y):
@@ -112,6 +119,14 @@ while running:
 
     # Enemy movement
     for i in range(num_of_enemy):
+
+        # Game over
+        '''if enemy_y[i] > 440:
+            for j in range(num_of_enemy):
+                enemy_y[j] = 2000
+            game_over_text()
+            break'''
+
         enemy_x[i] += enemy_x_change[i]
         if enemy_x[i] <= 0:
             enemy_x_change[i] = 1
@@ -140,5 +155,5 @@ while running:
         bullet_y = 480
 
     player(player_x, player_y)
-    show_score(text_x, text_y)
+    # show_score(text_x, text_y)
     pygame.display.update()
